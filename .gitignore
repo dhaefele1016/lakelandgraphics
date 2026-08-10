@@ -1,0 +1,10 @@
+# Real mail credentials — never commit
+config.php
+
+# macOS
+.DS_Store
+Icon?
+._*
+
+# Editor
+.vscode/
