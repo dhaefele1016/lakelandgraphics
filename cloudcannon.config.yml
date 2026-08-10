@@ -16,14 +16,22 @@ collections_config:
     # (The Source editor stays available; it can't be disabled by this key.)
     _enabled_editors:
       - visual
+# Toolbar + custom "Styles" dropdown for editable rich-text regions.
+# `block` covers on-page class="editable" regions (Visual Editor); `content`
+# covers rich text from file content sections. Configure both so the Styles
+# dropdown (span.accentword — the blue accent highlight) is available wherever
+# an editor works. Selectors in editor-styles.css must be element.class form.
 _editables:
-  content:
-    # Custom "Styles" dropdown — lets an editor select text and apply the
-    # accent-word highlight (blue). Selectors in editor-styles.css must be in
-    # element.class form to appear. This also makes headings that contain
-    # <span class="accentword"> editable instead of "Unsupported data".
+  block:
     styles: /cloudcannon/editor-styles.css
-    # Toolbar offered on editable rich-text regions
+    bold: true
+    italic: true
+    link: true
+    undo: true
+    redo: true
+    removeformat: true
+  content:
+    styles: /cloudcannon/editor-styles.css
     bold: true
     italic: true
     link: true
