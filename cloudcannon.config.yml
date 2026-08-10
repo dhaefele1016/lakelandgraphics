@@ -18,6 +18,11 @@ collections_config:
       - visual
 _editables:
   content:
+    # Custom "Styles" dropdown — lets an editor select text and apply the
+    # accent-word highlight (blue). Selectors in editor-styles.css must be in
+    # element.class form to appear. This also makes headings that contain
+    # <span class="accentword"> editable instead of "Unsupported data".
+    styles: /cloudcannon/editor-styles.css
     # Toolbar offered on editable rich-text regions
     bold: true
     italic: true
