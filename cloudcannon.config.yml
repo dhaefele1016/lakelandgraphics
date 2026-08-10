@@ -8,6 +8,12 @@ collections_config:
       - "*.html"
     name: Pages
     icon: description
+    # Force the Visual Editor for these plain-HTML pages. Without this,
+    # CloudCannon defaults to the Content/Data editor, which can't parse a
+    # front-matter-less HTML document and shows "Unsupported data".
+    # (The Source editor stays available; it can't be disabled by this key.)
+    _enabled_editors:
+      - visual
 _editables:
   content:
     # Toolbar offered on editable rich-text regions
