@@ -1,0 +1,24 @@
+# CloudCannon configuration for the Lakeland Graphics static HTML site
+# Docs: https://cloudcannon.com/documentation/
+source: /
+collections_config:
+  pages:
+    path: ""
+    glob:
+      - "*.html"
+    name: Pages
+    icon: description
+_editables:
+  content:
+    # Toolbar offered on editable rich-text regions
+    bold: true
+    italic: true
+    link: true
+    undo: true
+    redo: true
+    removeformat: true
+_inputs:
+  # Friendly labels for the per-page SEO fields exposed to editors
+  description:
+    type: text
+    comment: The search-result / social description for this page (~155 chars).
