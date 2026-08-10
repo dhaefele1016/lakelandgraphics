@@ -15,6 +15,19 @@
 2. Choose a new picture from your computer.
 3. Click **Save**.
 
+## Highlighting a word in a headline (accent color)
+In the big headlines, you can make any word the brand accent color:
+1. Double-click the word to select it.
+2. Click **Bold** (the **B**) in the little toolbar. The word turns the accent color.
+3. To remove it, select the word and click **Bold** again.
+(This accent trick works in the large headlines. In normal paragraphs, Bold just
+makes text bold as usual.)
+
+## Undoing a change you haven't published
+Changed your mind before publishing? Open the page, click the **⋮ (three dots)**
+next to **Save**, and choose **"Discard unsaved changes."** That throws away your
+unsaved edits on that page and puts it back the way it was.
+
 ## Publishing (making changes live)
 1. After saving, click **Publish**.
 2. Your changes appear on the real website within about a minute.
