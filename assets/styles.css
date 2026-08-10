@@ -274,11 +274,15 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.04;letter-s
 .hero__copy{max-width:560px;}
 .hero h1{margin:18px 0 0;}
 .hero h1 .accentword{color:var(--accent);}
-/* Global accent-word utility: lets an editor apply the accent highlight to any
-   word (via the CloudCannon Styles dropdown) and have it colour correctly
-   anywhere on the page, not just inside the hero headline. Uses the page's
-   themed --accent, matching the existing scoped rules above/below. */
-.accentword{color:var(--accent);}
+/* Bold = accent colour in display headlines and the pull-quote. Weight is
+   inherited so only the colour changes (matching the heavy display type). This
+   is the editor accent control: in a headline an editor selects a word and
+   clicks Bold to accent it, and again to remove it. Body-copy bold is
+   unaffected. Also covers any legacy .accentword spans. */
+.h1 strong,.h1 b,.h2 strong,.h2 b,.h3 strong,.h3 b,
+h1 strong,h1 b,h2 strong,h2 b,h3 strong,h3 b,
+.ab-pull blockquote strong,.ab-pull blockquote b,
+.accentword{color:var(--accent);font-weight:inherit;}
 .hero .lead{margin-top:22px;max-width:480px;}
 .hero .support{margin-top:18px;font-size:15.5px;color:var(--wg700);max-width:480px;}
 .hero .support b{color:var(--ink);font-weight:600;}
