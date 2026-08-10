@@ -1,6 +1,8 @@
 # CloudCannon configuration for the Lakeland Graphics static HTML site
 # Docs: https://cloudcannon.com/documentation/
 source: /
+# Plain HTML, no build step — CloudCannon serves the files as-is.
+ssg: static
 collections_config:
   pages:
     path: ""
