@@ -24,5 +24,11 @@
 - 🔒 The layout, design, menus, and footer are locked so nothing can break.
 - Need a brand-new page or a layout change? Contact Doug.
 
+## Editing FAQ questions
+You can reword any FAQ question and its answer. Just **change the wording in
+place** — type over the existing text. Don't delete a whole question, and don't
+remove the little +/– toggle; if a question ever stops opening and closing,
+text Doug and he'll fix it in a minute.
+
 ## Questions
 Text or email Doug and he'll walk you through it.
