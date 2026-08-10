@@ -1,0 +1,47 @@
+name: Deploy to InMotion
+
+# Publishes the site to InMotion (public_html) over encrypted FTPS whenever
+# main changes — e.g. after Melissa publishes in CloudCannon (which commits to
+# main). Can also be run manually from the Actions tab ("Run workflow").
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Never run two deploys at once; if pushes stack up, keep only the latest.
+concurrency:
+  group: deploy-inmotion
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.lakelandgraphics.com
+          port: 21
+          protocol: ftps            # explicit FTP over TLS (encrypted)
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./             # repo root = the site
+          server-dir: ./            # FTP account is scoped to public_html
+          # Files kept OUT of the upload AND protected from deletion on the
+          # server. config.php holds the live mail password and is never in the
+          # repo, so it must never be touched. The rest are dev/CMS/internal
+          # files that shouldn't be publicly served.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            docs/**
+            cloudcannon/**
+            cloudcannon.config.yml
+            config.example.php
+            config.php
+            **/.DS_Store
+            **/Icon*
