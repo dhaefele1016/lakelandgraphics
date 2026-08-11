@@ -182,15 +182,45 @@ try {
         $ack->addAddress($email, $name);
         $ack->addReplyTo($cfg['to_email'], $cfg['to_name']);
         $ack->isHTML(true);
-        $ack->Subject = 'We got your request — Lakeland Graphics';
-        $ack->Body    = '<p style="font:15px/1.6 Arial,sans-serif">Thanks for reaching out, '
-                      . htmlspecialchars($name) . '.</p>'
-                      . '<p style="font:15px/1.6 Arial,sans-serif">We have your request and we\'ll be in touch '
-                      . 'within 1&ndash;2 business days with a quote and a recommendation. '
-                      . 'If you\'re in a hurry, call us at 800.495.8107.</p>'
-                      . '<p style="font:15px/1.6 Arial,sans-serif">&mdash; Lakeland Graphics</p>';
-        $ack->AltBody = "Thanks for reaching out, $name.\n\nWe have your request and we'll be in touch "
-                      . "within 1-2 business days.\n\n- Lakeland Graphics";
+        $nameHtml = htmlspecialchars($name);
+        $ack->Subject = 'Thanks — we\'ve got your request | Lakeland Graphics';
+        $ack->Body = <<<HTML
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#eef0f2;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef0f2;">
+<tr><td align="center" style="padding:28px 12px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background:#ffffff;border-radius:14px;overflow:hidden;">
+<tr><td style="background:#0f1216;padding:24px 32px;">
+<div style="font:700 20px/1 Arial,Helvetica,sans-serif;color:#ffffff;letter-spacing:.08em;">LAKELAND GRAPHICS</div>
+<div style="height:3px;width:46px;background:#EC1187;margin-top:12px;border-radius:2px;line-height:3px;font-size:0;">&nbsp;</div>
+</td></tr>
+<tr><td style="padding:34px 32px 8px;">
+<h1 style="font:700 22px/1.35 Arial,Helvetica,sans-serif;color:#0f1216;margin:0 0 16px;">Thanks, {$nameHtml} &mdash; we&rsquo;ve got your request.</h1>
+<p style="font:15px/1.7 Arial,Helvetica,sans-serif;color:#3a3f44;margin:0 0 16px;">A real person on our team is reviewing it now. We&rsquo;ll get back to you <strong style="color:#0f1216;">within 1&ndash;2 business days</strong> with a quote and a recommendation for the right build.</p>
+<p style="font:15px/1.7 Arial,Helvetica,sans-serif;color:#3a3f44;margin:0 0 26px;">Thought of something to add, or in a hurry? Just reply to this email or give us a call &mdash; we&rsquo;re glad to help.</p>
+</td></tr>
+<tr><td style="padding:0 32px 34px;">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td style="padding:0 22px 0 0;font:14px/1.5 Arial,Helvetica,sans-serif;color:#0f1216;">Call&nbsp;<a href="tel:8004958107" style="color:#0f1216;text-decoration:none;font-weight:700;">800.495.8107</a></td>
+<td style="font:14px/1.5 Arial,Helvetica,sans-serif;color:#0f1216;">Email&nbsp;<a href="mailto:sales@lakelandgraphics.com" style="color:#1488B6;text-decoration:none;font-weight:700;">sales@lakelandgraphics.com</a></td>
+</tr></table>
+</td></tr>
+<tr><td style="background:#f6f7f8;padding:20px 32px;border-top:1px solid #e6e8ea;">
+<p style="font:12px/1.7 Arial,Helvetica,sans-serif;color:#8a9096;margin:0;">Lakeland Graphics &middot; 9444 Deerwood Lane N, Maple Grove, MN 55369<br>Durable custom graphics since 1987 &middot; Woman-owned &middot; 100% Made in the USA</p>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body></html>
+HTML;
+        $ack->AltBody = "Thanks, {$name} — we've got your request.\n\n"
+                      . "A real person on our team is reviewing it now. We'll get back to you within "
+                      . "1-2 business days with a quote and a recommendation for the right build.\n\n"
+                      . "Thought of something to add, or in a hurry? Reply to this email or call us.\n\n"
+                      . "Call: 800.495.8107\nEmail: sales@lakelandgraphics.com\n\n"
+                      . "Lakeland Graphics\n9444 Deerwood Lane N, Maple Grove, MN 55369\n"
+                      . "Durable custom graphics since 1987 · 100% Made in the USA";
         try { $ack->send(); } catch (MailException $e) { /* non-fatal */ }
     }
 
