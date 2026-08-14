@@ -29,12 +29,11 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./             # repo root = the site
-          # STAGING: deploy into public_html/staging (served at
-          # staging.lakelandgraphics.com) so the live WordPress site at the main
-          # domain is untouched. AT GO-LIVE: after backing up + removing
-          # WordPress from public_html, change this to `./` to publish to the
-          # live root, and move config.php up to public_html.
-          server-dir: ./staging/
+          # LIVE: deploy into public_html (the live root, served at
+          # lakelandgraphics.com). WordPress has been backed up and moved out of
+          # public_html, and config.php lives in public_html (gitignored +
+          # excluded below, so the deploy never touches it).
+          server-dir: ./
           # Files kept OUT of the upload AND protected from deletion on the
           # server. config.php holds the live mail password and is never in the
           # repo, so it must never be touched. The rest are dev/CMS/internal
