@@ -76,6 +76,17 @@ M365 `sales@` inbox).
 - **Email:** InMotion delivered same-domain mail locally instead of routing to M365,
   and M365 SMTP was locked down — so we send via **Brevo**. First failure was Brevo's
   **IP authorization** blocking InMotion's IP; authorizing `104.244.122.87` fixed it.
+- **PHP VERSION (the big one, cost us the go-live form).** The account **default PHP
+  is 5.6.40**. WordPress's own `.htaccess` had a cPanel handler line forcing PHP 7.x;
+  moving that `.htaccess` out of `public_html` at cutover dropped the live root back to
+  the 5.6 default. `send-quote.php` is PHP 7.1+ (uses `declare(strict_types=1)`, scalar
+  type hints, `: void`, `??`), so on 5.6 it **won't even compile → blank 500 with empty
+  body** before any line runs (honeypot never short-circuits). Static pages were fine
+  (PHP version only affects `.php`). **Fix: cPanel → MultiPHP Manager → set
+  `lakelandgraphics.com` (and the staging subdomain) to `ea-php82` (PHP 8.2).** No
+  redeploy needed — it's a live server setting. Confirmed working on PHP 8.2.33.
+  Diagnosed with a temporary secrets-masked `diag.php` that isolated each `require`
+  and printed `PHP_VERSION` (removed after use).
 - **`send-quote.php` returns HTTP 500 to raw `curl`/direct hits** (empty body, no
   referer/multipart) — this is InMotion **ModSecurity**, NOT a broken form. Staging's
   proven-working handler does the same. Only a real browser submission (multipart
