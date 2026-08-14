@@ -24,7 +24,9 @@ Quick-start context for resuming work (e.g. the cutover) in a fresh session.
   (DKIM), and InMotion's outbound IP (`104.244.122.87`) is **authorized in Brevo**
   (Security → Authorized IPs). Mail lands in the real `sales@` inbox on **Microsoft 365**
   (domain MX → Outlook).
-- **Current live site:** still the old **WordPress** install in `public_html` (untouched).
+- **Current live site:** the **new static site** in `public_html` (cut over 2026-08-14).
+  Old WordPress moved to `/home/lakela11/old-wordpress/` (backed up first, not deleted).
+  Kept in `public_html`: `staging`, `.well-known`, `cgi-bin`, `config.php`.
 
 ## Status: DONE (on staging)
 
@@ -33,7 +35,16 @@ sitemap, robots); CloudCannon on-page editing (text, images, headline accent via
 **Bold**, FAQ, privacy/terms fully editable); auto-deploy pipeline; quote form with
 file upload + branded emails delivering to M365.
 
-## Remaining: the cutover (retire WordPress, go live)
+## DONE: the cutover (2026-08-14) — WordPress retired, static site live
+
+Steps 1–6 below were completed. Homepage + all 11 pages, CSS/images, sitemap,
+robots return 200; SSL valid (Sectigo DV, good through 2027-01-30); `/wp-login.php`
+and `/wp-admin/` now 404; `config.php` returns 403. Deploy target is now `./`.
+**Still to do:** the post-cutover items in step 7, and a real end-to-end form test
+(submit the live quote form and confirm the email + branded auto-reply land in the
+M365 `sales@` inbox).
+
+### Original cutover checklist (kept for reference)
 
 1. **Back up WordPress** — cPanel Backup Wizard (files) + phpMyAdmin (database export).
 2. **Move WP out of `public_html`** — e.g. to `/home/lakela11/old-wordpress/` (move,
@@ -65,3 +76,11 @@ file upload + branded emails delivering to M365.
 - **Email:** InMotion delivered same-domain mail locally instead of routing to M365,
   and M365 SMTP was locked down — so we send via **Brevo**. First failure was Brevo's
   **IP authorization** blocking InMotion's IP; authorizing `104.244.122.87` fixed it.
+- **`send-quote.php` returns HTTP 500 to raw `curl`/direct hits** (empty body, no
+  referer/multipart) — this is InMotion **ModSecurity**, NOT a broken form. Staging's
+  proven-working handler does the same. Only a real browser submission (multipart
+  FormData) exercises the true path. Likewise, ModSecurity **406** on plain `curl` to
+  any page is just the default curl user-agent being blocked — use a browser UA to test.
+- **cPanel File Manager (Jupiter):** no right-click menu; select rows in the RIGHT
+  pane (not the left tree) to enable Move/Permissions. `.well-known` and `cgi-bin`
+  must stay in `public_html` (SSL/AutoSSL + server), only WordPress files move out.
