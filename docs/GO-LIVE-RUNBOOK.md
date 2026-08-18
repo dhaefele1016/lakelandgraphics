@@ -95,3 +95,62 @@ M365 `sales@` inbox).
 - **cPanel File Manager (Jupiter):** no right-click menu; select rows in the RIGHT
   pane (not the left tree) to enable Move/Permissions. `.well-known` and `cgi-bin`
   must stay in `public_html` (SSL/AutoSSL + server), only WordPress files move out.
+
+## 2026-08-18 — mobile image fix + SEO/performance pass
+
+### Mobile horizontal-overflow bug (fixed)
+`.shot` carries **both** `aspect-ratio:16/10` and a `min-height`. Inside a grid
+item, a min-height on an aspect-ratio box transfers into an automatic **minimum
+width** (`min-height × 1.6`) — e.g. `min-height:230px` implies a 368px minimum
+width, wider than the ~335px of content a 375px phone has. The frame overflowed
+its column and dragged the whole page sideways (headlines cut off mid-word).
+Desktop was fine because the column was wide enough to absorb it.
+
+Fixed by zeroing `min-height` on those frames below 900px, so the aspect ratio
+alone sets the height. **The override is duplicated in all three stylesheets**
+(`styles.css` → `pages.css` → `catalog.css` load in that order) — a single rule
+in `styles.css` would lose to the later files on specificity/order. If you add a
+new photo frame, add it to the matching guard block.
+
+Affected 8 of 12 pages (worst: `about.html`, 71px). All 12 pages + `404.html` now
+verified at 0px overflow from 320px to 1180px.
+
+### Images: 56 MB → 2.9 MB
+Source JPEGs were untouched camera originals (up to **6240×4160, 14.7 MB**) shown
+at ~600px. Homepage was **27.5 MB**. Resized to **1400px wide, quality 80** with
+`sips` — 94.8% smaller, no visible quality loss (1400px keeps it sharp at 2× retina
+for the 605px widest frame on the site).
+
+Originals are recoverable from git history (all 13 were committed) — see the commit
+before this one. Re-run:
+`sips -Z 1400 -s format jpeg -s formatOptions 80 <file> --out <file>`
+
+**Watch out:** CloudCannon lets Melissa replace photos, and a phone upload will put
+a 15 MB original straight back on the site. `docs/EDITING-GUIDE.md` now has resizing
+instructions. Worth spot-checking image sizes after she publishes.
+
+### Other SEO/perf changes
+- `<img>`: added `width`/`height` (CLS), `decoding="async"`, `loading="lazy"` on
+  below-fold images, `fetchpriority="high"` on each page's LCP image. Initial render
+  payload is now ~350 KB per page.
+- `.htaccess`: added **gzip/brotli** (server was sending HTML/CSS uncompressed —
+  `styles.css` 24.5 KB → ~5 KB), **www → apex 301**, and `ErrorDocument 404`.
+- **`404.html`** — branded, replaces the bare InMotion error page. All its asset and
+  link paths are **root-relative** (`/assets/…`) because it gets served at whatever
+  path was requested (e.g. `/services/foo/`); relative paths would 404.
+- `faq.html` had **no `<h1>`** — its lead heading was an `<h2>`. Now `<h1 class="h2">`,
+  which keeps the visual size identical (sizing comes from the class, not the element).
+- Trimmed 4 meta descriptions that ran 165–173 chars (Google truncates ~160); og/twitter
+  descriptions kept in sync.
+- Added **BreadcrumbList** schema to the 10 pages with visible breadcrumbs, plus
+  AboutPage / ContactPage / CollectionPage on about / quote / industries.
+- `sitemap.xml`: added `lastmod`, `changefreq`, `priority`.
+
+### Still outstanding
+- **No redirect map from the old WordPress URLs** — they 404 (now onto the branded
+  404 page). Search Console was only set up at go-live so there's no history to mine
+  yet. Once it accumulates data, check **Pages → Not indexed → Not found (404)** and
+  add 301s to `.htaccess` for anything with real traffic.
+- Alt text: all 50 images have descriptive alt attributes. Verified, nothing to do.
+- Optional next step: WebP/AVIF with `<picture>` fallback (another ~30% off the
+  images) — skipped for now to avoid complicating the CloudCannon-editable markup.

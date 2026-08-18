@@ -146,3 +146,12 @@
   .ptypes{grid-template-columns:1fr;}
   .specs{grid-template-columns:1fr;gap:18px;}
 }
+
+/* Mobile: see the "photo frames must not force horizontal overflow" note in
+   styles.css. This is the fleet/fuel/decals/specialty hero + "Typical
+   applications" photo, and the industries rows. */
+@media (max-width:900px){
+  .cat-hero .phero__visual .shot,
+  .apps-grid .shot,
+  .ind-visual .shot{min-height:0;}
+}

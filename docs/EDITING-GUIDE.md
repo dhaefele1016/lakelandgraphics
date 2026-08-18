@@ -15,6 +15,20 @@
 2. Choose a new picture from your computer.
 3. Click **Save**.
 
+> **Please shrink the photo first — this one really matters.**
+> Photos straight from a phone or camera are 5–15 MB. The website only ever
+> displays them about 600 pixels wide, so a full-size photo makes the page take
+> 10+ seconds to load on a phone — and Google lowers your search ranking for
+> slow pages. Every photo on the site is currently about 200 KB.
+>
+> **Before you upload:** resize the photo to **1400 pixels wide** and save as JPEG.
+> - **Mac:** open in Preview → Tools → Adjust Size → set Width to 1400 → File →
+>   Export → Format JPEG, Quality about 80% → Save.
+> - **Windows:** open in Photos → Edit → Resize → set Width to 1400 → Save a copy.
+>
+> A resized photo looks identical on the site. If you're not sure, send it to Doug
+> and he'll resize it for you.
+
 ## Highlighting a word in a headline (accent color)
 In the big headlines, you can make any word the brand accent color:
 1. Double-click the word to select it.

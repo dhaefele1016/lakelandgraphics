@@ -302,3 +302,14 @@
 /* quote form: honeypot + error message */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 .formerr{margin:0 0 16px;padding:13px 16px;border:1px solid #e0b4b4;background:#fdf3f3;border-radius:var(--radius);font-size:14.5px;line-height:1.5;color:#8a2b2b;}
+
+/* Mobile: see the "photo frames must not force horizontal overflow" note in
+   styles.css. Repeated here so it out-specifies the [data-about] variants. */
+@media (max-width:900px){
+  .ab-open__visual .shot,
+  .ab-row__visual .shot,
+  [data-about="centered"] .ab-open__visual .shot,
+  [data-about="centered"] .ab-row__visual .shot,
+  [data-about="stacked"] .ab-open__visual .shot,
+  [data-about="stacked"] .ab-row__visual .shot{min-height:0;}
+}

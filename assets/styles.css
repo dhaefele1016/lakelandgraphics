@@ -518,3 +518,21 @@ h1 strong,h1 b,h2 strong,h2 b,h3 strong,h3 b,
 .mobile-nav a::after{content:"\2192";color:var(--accent);font-size:19px;opacity:.7;}
 .mobile-nav .btn{margin-top:24px;justify-content:center;}
 .mobile-nav .btn::after{content:none;}
+
+/* ============================================================
+   MOBILE: photo frames must not force horizontal overflow
+   ------------------------------------------------------------
+   A .shot has BOTH an aspect-ratio and a min-height. Inside a grid
+   item, that min-height transfers into an automatic minimum WIDTH
+   (min-height x 16/10) — e.g. 230px tall implies 368px wide, which is
+   wider than the ~335px of content a phone has. The frame then pushed
+   the whole grid (and the page) sideways.
+   Once the frame is full-width the aspect ratio already gives it plenty
+   of height, so the min-height is only ever doing harm here.
+   NOTE: keep these overrides in the same file as the rule they beat —
+   styles.css / pages.css / catalog.css load in that order.
+   ============================================================ */
+@media (max-width:900px){
+  .hero__visual .shot,
+  .phero__visual .shot{min-height:0;}
+}

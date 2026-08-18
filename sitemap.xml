@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://lakelandgraphics.com/</loc></url>
-  <url><loc>https://lakelandgraphics.com/about.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/process.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/industries.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/fuel.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/decals.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/fleet.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/specialty.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/faq.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/quote.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/privacy.html</loc></url>
-  <url><loc>https://lakelandgraphics.com/terms.html</loc></url>
+  <url><loc>https://lakelandgraphics.com/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://lakelandgraphics.com/fuel.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://lakelandgraphics.com/decals.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://lakelandgraphics.com/fleet.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://lakelandgraphics.com/specialty.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://lakelandgraphics.com/industries.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://lakelandgraphics.com/quote.html</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://lakelandgraphics.com/about.html</loc><lastmod>2026-08-18</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://lakelandgraphics.com/process.html</loc><lastmod>2026-08-18</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://lakelandgraphics.com/faq.html</loc><lastmod>2026-08-18</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://lakelandgraphics.com/privacy.html</loc><lastmod>2026-08-18</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://lakelandgraphics.com/terms.html</loc><lastmod>2026-08-18</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>
