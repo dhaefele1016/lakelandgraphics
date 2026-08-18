@@ -1,3 +1,18 @@
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the "ea-php82" package as the default "PHP" programming language.
+#
+# THIS BLOCK MUST STAY IN THE REPO. cPanel's MultiPHP Manager writes it into
+# public_html/.htaccess on the SERVER, but every deploy overwrites that file —
+# so if it only lives on the server it disappears the next time .htaccess
+# changes. Without it the account falls back to its default PHP 5.6.40, and
+# send-quote.php (PHP 7.1+: declare(strict_types=1), scalar type hints, ": void")
+# fails to COMPILE — a blank HTTP 500 with an empty body, before line 1 runs.
+# The quote form silently stops working. See docs/GO-LIVE-RUNBOOK.md.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
 # Protect mail credentials
 <Files "config.php">
   Require all denied
