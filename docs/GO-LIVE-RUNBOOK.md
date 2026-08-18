@@ -146,6 +146,32 @@ instructions. Worth spot-checking image sizes after she publishes.
   AboutPage / ContactPage / CollectionPage on about / quote / industries.
 - `sitemap.xml`: added `lastmod`, `changefreq`, `priority`.
 
+### PHP handler: the 5.6 trap, round two (2026-08-18)
+
+The `.htaccess` rewrite above **broke the quote form for ~15 minutes** and it is
+worth understanding exactly why, because the trap is still armed for anyone who
+edits `.htaccess`.
+
+MultiPHP Manager's "set this domain to ea-php82" writes a handler block into
+**`public_html/.htaccess` on the server**. That file is *not* excluded from the
+deploy, so it is overwritten by whatever is in the repo. The repo's `.htaccess`
+never contained the block, and no `.htaccess` change had been pushed since the
+Aug 14 PHP fix — so the server copy quietly kept it. The first `.htaccess` push
+since then wiped it, the account fell back to its default **PHP 5.6.40**, and
+`send-quote.php` stopped compiling: **blank HTTP 500, empty body**, exactly the
+signature documented in the gotchas above.
+
+**The block now lives at the top of the repo's `.htaccess`**, so it survives
+deploys. Do not delete it, and if you ever change the PHP version in MultiPHP
+Manager, update it in the repo too or the next deploy will revert you.
+
+Diagnostic tell: `curl https://lakelandgraphics.com/send-quote.php` should return
+**405 with a JSON body** (`{"ok":false,"error":"Method not allowed."}`) — that is
+`send-quote.php` running correctly and rejecting a GET. A **500 with an empty
+body** means PHP is not compiling the file, i.e. the version dropped again.
+(Note: the older "500 = ModSecurity" note in the gotchas applies to POST/multipart
+probes; a plain GET should give a clean 405.)
+
 ### Still outstanding
 - **No redirect map from the old WordPress URLs** — they 404 (now onto the branded
   404 page). Search Console was only set up at go-live so there's no history to mine
