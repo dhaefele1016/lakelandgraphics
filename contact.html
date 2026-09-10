@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request a Quote — Lakeland Graphics</title>
+<title>Contact Us — Lakeland Graphics</title>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/pages.css">
-<meta name="description" content="Request a quote from Lakeland Graphics. Upload a photo of your project and we'll send a quote and a recommendation the same or next business day.">
-<link rel="canonical" href="https://lakelandgraphics.com/quote.html">
+<meta name="description" content="Contact Lakeland Graphics in Maple Grove, MN. Reach sales, accounting, or shipping directly and a real person replies the same or next business day.">
+<link rel="canonical" href="https://lakelandgraphics.com/contact.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lakeland Graphics">
-<meta property="og:title" content="Request a Quote — Lakeland Graphics">
-<meta property="og:description" content="Request a quote from Lakeland Graphics. Upload a photo of your project and we'll send a quote and a recommendation the same or next business day.">
-<meta property="og:url" content="https://lakelandgraphics.com/quote.html">
+<meta property="og:title" content="Contact Us — Lakeland Graphics">
+<meta property="og:description" content="Contact Lakeland Graphics in Maple Grove, MN. Reach sales, accounting, or shipping directly and a real person replies the same or next business day.">
+<meta property="og:url" content="https://lakelandgraphics.com/contact.html">
 <meta property="og:image" content="https://lakelandgraphics.com/assets/hero-print.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Request a Quote — Lakeland Graphics">
-<meta name="twitter:description" content="Request a quote from Lakeland Graphics. Upload a photo of your project and we'll send a quote and a recommendation the same or next business day.">
+<meta name="twitter:title" content="Contact Us — Lakeland Graphics">
+<meta name="twitter:description" content="Contact Lakeland Graphics in Maple Grove, MN. Reach sales, accounting, or shipping directly and a real person replies the same or next business day.">
 <meta name="twitter:image" content="https://lakelandgraphics.com/assets/hero-print.jpg">
 <script>(function(){var d=document.documentElement;d.className+=' js';d.setAttribute('data-accent','cyan');})();</script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lakelandgraphics.com/"}, {"@type": "ListItem", "position": 2, "name": "Request a Quote", "item": "https://lakelandgraphics.com/quote.html"}]}
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lakelandgraphics.com/"}, {"@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://lakelandgraphics.com/contact.html"}]}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "ContactPage", "url": "https://lakelandgraphics.com/quote.html", "name": "Request a Quote", "mainEntity": {"@type": "LocalBusiness", "@id": "https://lakelandgraphics.com/#business", "name": "Lakeland Graphics", "telephone": "+1-800-495-8107", "email": "sales@lakelandgraphics.com"}}
+{"@context": "https://schema.org", "@type": "ContactPage", "url": "https://lakelandgraphics.com/contact.html", "name": "Contact Lakeland Graphics", "mainEntity": {"@type": "LocalBusiness", "@id": "https://lakelandgraphics.com/#business", "name": "Lakeland Graphics", "telephone": "+1-800-495-8107", "email": "sales@lakelandgraphics.com", "address": {"@type": "PostalAddress", "streetAddress": "9444 Deerwood Lane N", "addressLocality": "Maple Grove", "addressRegion": "MN", "postalCode": "55369", "addressCountry": "US"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "16:30"}]}}
 </script>
 </head>
-<body data-page="quote">
+<body data-page="contact">
 
 <!-- ============ HEADER ============ -->
 <header class="header">
@@ -39,7 +39,7 @@
       <a href="index.html#work">What We Do</a>
       <a href="industries.html">Industries</a>
       <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="is-active">Contact</a>
     </nav>
     <div class="header__cta">
       <a class="btn btn--primary" href="quote.html">Request a Quote</a>
@@ -63,10 +63,10 @@
 
 <!-- ============ HERO ============ -->
 <section class="quote-hero wrap">
-  <nav class="crumbs reveal"><a href="index.html">Home</a><span>/</span>Request a Quote</nav>
-  <p class="eyebrow reveal d1 editable" style="margin-top:18px">Response the same or next business day</p>
-  <h1 class="h1 reveal d1 editable">Upload a photo.<br>We'll handle the <strong>rest</strong>.</h1>
-  <p class="lead reveal d2 editable">Tell us what you need and send a photo of where the decal or graphic will go. We'll review your project and come back with a quote and a recommendation.</p>
+  <nav class="crumbs reveal"><a href="index.html">Home</a><span>/</span>Contact Us</nav>
+  <p class="eyebrow reveal d1 editable" style="margin-top:18px">Real people · Same or next business day</p>
+  <h1 class="h1 reveal d1 editable">Talk to the <strong>right</strong> person.</h1>
+  <p class="lead reveal d2 editable">A question about an order, a shipment, or an invoice? Tell us who you'd like to reach and your message goes straight to them.</p>
 </section>
 
 <!-- ============ FORM + SIDEBAR ============ -->
@@ -74,82 +74,67 @@
   <div class="quote-grid">
 
     <!-- FORM -->
-    <div class="qform reveal" id="qform">
+    <div class="qform reveal" id="cform">
       <div class="qform__body">
-        <form id="quoteForm" novalidate>
-          <p class="qform__step">Your project</p>
+        <!-- Each option's value is a department KEY. The staff who receive it are
+             set server-side in config.php ('contact_departments') and never appear
+             here. Adding a department? Add the same key to config.php on the server
+             first, or the handler will reject it. -->
+        <form id="contactForm" novalidate>
+          <p class="qform__step">Your details</p>
 
           <div class="field-row">
             <div class="field">
-              <label for="f_name">Name <span class="opt">Required</span></label>
-              <input type="text" id="f_name" name="name" autocomplete="name" placeholder="Jane Doe">
+              <label for="c_name">Name <span class="opt">Required</span></label>
+              <input type="text" id="c_name" name="name" autocomplete="name" maxlength="200" placeholder="Jane Doe">
               <span class="field__err">Please enter your name.</span>
             </div>
             <div class="field">
-              <label for="f_company">Company</label>
-              <input type="text" id="f_company" name="company" autocomplete="organization" placeholder="Company name">
+              <label for="c_company">Company</label>
+              <input type="text" id="c_company" name="company" autocomplete="organization" maxlength="200" placeholder="Company name">
             </div>
           </div>
 
           <div class="field-row">
             <div class="field">
-              <label for="f_email">Email <span class="opt">Required</span></label>
-              <input type="email" id="f_email" name="email" autocomplete="email" placeholder="you@company.com">
+              <label for="c_email">Email <span class="opt">Required</span></label>
+              <input type="email" id="c_email" name="email" autocomplete="email" maxlength="254" placeholder="you@company.com">
               <span class="field__err">Please enter a valid email.</span>
             </div>
             <div class="field">
-              <label for="f_phone">Phone</label>
-              <input type="tel" id="f_phone" name="phone" autocomplete="tel" placeholder="(763) 000-0000">
+              <label for="c_phone">Phone</label>
+              <input type="tel" id="c_phone" name="phone" autocomplete="tel" maxlength="40" placeholder="(763) 000-0000">
             </div>
           </div>
 
+          <p class="qform__step" style="margin-top:14px">Your message</p>
+
           <div class="field">
-            <label for="f_print">What are you looking to print? <span class="opt">Required</span></label>
-            <select id="f_print" name="print">
-              <option value="" selected disabled>Select a category…</option>
-              <option>Fuel &amp; convenience-store graphics</option>
-              <option>Custom decals &amp; labels</option>
-              <option>Fleet, vehicle &amp; environmental graphics</option>
-              <option>Custom &amp; specialty work</option>
-              <option>A replacement overlay / decal</option>
-              <option>Not sure yet — need help</option>
+            <label for="c_department">Who would you like to reach? <span class="opt">Required</span></label>
+            <select id="c_department" name="department">
+              <option value="" selected disabled>Select a department…</option>
+              <option value="Sales Inquiries">Sales Inquiries</option>
+              <option value="Accounting Inquiries">Accounting Inquiries</option>
+              <option value="Shipment Inquiries">Shipment questions</option>
+              <option value="General Inquiries">General questions</option>
             </select>
-            <span class="field__err">Please choose what you'd like to print.</span>
+            <span class="field__err">Please choose who you'd like to reach.</span>
           </div>
 
           <div class="field">
-            <label for="f_use">Application / use case</label>
-            <textarea id="f_use" name="use" placeholder="Tell us where it goes and what it's for — e.g. octane overlays for a 6-pump station, safety labels for warehouse equipment, door decals for a delivery fleet…"></textarea>
+            <label for="c_comment">How can we help? <span class="opt">Required</span></label>
+            <textarea id="c_comment" name="comment" maxlength="5000" placeholder="Include an order or invoice number if you have one — it helps us find things fast."></textarea>
+            <span class="field__err">Please enter a message.</span>
           </div>
 
-          <p class="qform__step" style="margin-top:34px">Photos &amp; artwork</p>
-          <div class="uploads">
-            <label class="drop" id="dropPhoto" for="filePhoto">
-              <span class="drop__tag req">Encouraged</span>
-              <svg class="drop__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5L5 19"/></svg>
-              <span class="drop__t">Photo of the install spot</span>
-              <span class="drop__h">The pump, panel, or surface.<br>Drop images or click to browse.</span>
-              <input type="file" id="filePhoto" accept="image/*" multiple>
-              <div class="previews" id="previewPhoto"></div>
-            </label>
-            <label class="drop" id="dropArt" for="fileArt">
-              <span class="drop__tag">Optional</span>
-              <svg class="drop__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 3v5h5"/><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M9 13h6M9 16h6"/></svg>
-              <span class="drop__t">Your artwork</span>
-              <span class="drop__h">Print-ready files if you have them.<br>PDF, AI, EPS, PNG, JPG.</span>
-              <input type="file" id="fileArt" accept=".pdf,.ai,.eps,.svg,image/*" multiple>
-              <div class="previews" id="previewArt"></div>
-            </label>
-          </div>
-
-          <div class="hp" aria-hidden="true"><label for="f_website">Website</label><input type="text" id="f_website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="hp" aria-hidden="true"><label for="c_website">Website</label><input type="text" id="c_website" name="website" tabindex="-1" autocomplete="off"></div>
           <p class="formerr" id="formError" hidden></p>
 
           <div class="qform__submit">
-            <button type="submit" class="btn btn--primary btn--lg">Send Request
+            <button type="submit" class="btn btn--primary btn--lg">Send Message
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
-            <span class="qform__note">No account needed · No obligation</span>
+            <span class="qform__note">Goes straight to the right person</span>
           </div>
         </form>
       </div>
@@ -159,19 +144,19 @@
         <div class="qsuccess__mark">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
         </div>
-        <h2 class="h2 editable">Thanks for reaching out.</h2>
-        <p>We've got your request and we'll be in touch <b>the same or next business day</b> with a quote and a recommendation. In a hurry? Give us a call and we'll get moving.</p>
+        <h2 class="h2 editable">Thanks — your message is on its way.</h2>
+        <p class="editable">It's gone straight to the right person, and we'll get back to you <b>the same or next business day</b>. Need us sooner? Give us a call.</p>
         <div class="recap">
-          <h5>Request summary</h5>
+          <h5>Message summary</h5>
           <dl>
             <dt>From</dt><dd id="recapName">—</dd>
-            <dt>Project</dt><dd id="recapPrint">—</dd>
+            <dt>To</dt><dd id="recapDept">—</dd>
             <dt>Response</dt><dd>Same or next business day</dd>
           </dl>
         </div>
         <div class="qsuccess__act">
           <a class="btn btn--dark btn--lg" href="index.html">Back to Home</a>
-          <button type="button" class="btn btn--ghost btn--lg" id="qReset">Submit Another</button>
+          <button type="button" class="btn btn--ghost btn--lg" id="cReset">Send Another</button>
         </div>
       </div>
     </div>
@@ -179,8 +164,8 @@
     <!-- SIDEBAR -->
     <aside class="qside">
       <div class="qcard qcard--dark">
-        <h4>Prefer to talk?</h4>
-        <p>Phone and email reach a real person — no chatbots, no phone tree.</p>
+        <h4 class="editable">Prefer to talk?</h4>
+        <p class="editable">Phone and email reach a real person — no chatbots, no phone tree.</p>
         <div class="qcontact">
           <a href="tel:8004958107"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="big">800.495.8107</span></a>
           <a href="mailto:sales@lakelandgraphics.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>sales@lakelandgraphics.com</a>
@@ -188,17 +173,15 @@
       </div>
 
       <div class="qcard">
-        <h4>What happens next</h4>
-        <ol class="qsteps">
-          <li><span class="qn">1</span><span>We review your photo and details, and confirm exactly what you need.</span></li>
-          <li><span class="qn">2</span><span>You get a <b>quote and a recommendation</b> the same or next business day.</span></li>
-          <li><span class="qn">3</span><span>Approve a mockup, and we print, finish, and ship it.</span></li>
-        </ol>
+        <h4 class="editable">Where to find us</h4>
+        <p class="qaddr editable">9444 Deerwood Lane N<br>Maple Grove, MN 55369</p>
+        <p class="qmeta editable">Mon–Fri · 8:00 a.m.–4:30 p.m. Central</p>
       </div>
 
       <div class="qcard">
-        <h4>A good photo helps most</h4>
-        <p>For replacement work, a clear shot of the current pump, panel, or surface is the single fastest way to make sure you get exactly the right decal.</p>
+        <h4 class="editable">Looking for a price?</h4>
+        <p class="editable">The quote form lets you attach photos and artwork, which is the fastest way to an accurate quote.</p>
+        <a class="arrowlink qcard__link" href="quote.html">Request a quote <span class="arw">&#8594;</span></a>
       </div>
     </aside>
 
@@ -262,6 +245,6 @@
 </footer>
 
 <script src="assets/site.js"></script>
-<script src="assets/quote.js"></script>
+<script src="assets/contact.js"></script>
 </body>
 </html>

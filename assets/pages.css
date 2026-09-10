@@ -211,7 +211,9 @@
 .qcard p{font-size:14.5px;color:var(--wg700);line-height:1.6;}
 .qcard--dark p{color:#9C9BA1;}
 .qcontact{display:flex;flex-direction:column;gap:14px;margin-top:4px;}
-.qcontact a{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:15px;color:#fff;}
+/* overflow-wrap: the unbreakable email address otherwise sets the card's minimum
+   width (~318px) and pushes 320px phones sideways by 18px */
+.qcontact a{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:15px;color:#fff;overflow-wrap:anywhere;}
 .qcontact a:hover{color:var(--lg-cyan);}
 .qcontact svg{width:18px;height:18px;color:var(--lg-cyan);flex:none;}
 .qcontact .big{font-size:22px;font-weight:600;letter-spacing:0.01em;}
@@ -302,6 +304,11 @@
 /* quote form: honeypot + error message */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 .formerr{margin:0 0 16px;padding:13px 16px;border:1px solid #e0b4b4;background:#fdf3f3;border-radius:var(--radius);font-size:14.5px;line-height:1.5;color:#8a2b2b;}
+
+/* contact page: sidebar extras (the form + cards reuse the quote components) */
+.qcard .qaddr{color:var(--ink);font-size:15.5px;}
+.qcard .qmeta{margin-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--wg500);}
+.qcard__link{margin-top:16px;}
 
 /* Mobile: see the "photo frames must not force horizontal overflow" note in
    styles.css. Repeated here so it out-specifies the [data-about] variants. */

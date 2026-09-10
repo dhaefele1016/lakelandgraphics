@@ -465,6 +465,18 @@ h1 strong,h1 b,h2 strong,h2 b,h3 strong,h3 b,
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+/* Six nav links + logo + CTA don't fit at 34px gaps on tablets: the flex row
+   squeezes the logo instead (down to ~50px wide at 769px) and the three pieces
+   butt up against each other. Tighter gaps + a guaranteed 16px between them
+   keep the logo about as large as it was with five links. */
+@media (max-width:1024px){
+  .header__bar{gap:16px;}
+  .nav{gap:24px;}
+}
+@media (max-width:900px){
+  .nav{gap:16px;}
+  .nav a{font-size:14px;}
+}
 @media (max-width:1024px){
   .hero__grid{grid-template-columns:1fr;}
   .hero__visual{order:-1;}

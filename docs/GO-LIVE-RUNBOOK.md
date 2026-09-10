@@ -172,6 +172,43 @@ body** means PHP is not compiling the file, i.e. the version dropped again.
 (Note: the older "500 = ModSecurity" note in the gotchas applies to POST/multipart
 probes; a plain GET should give a clean 405.)
 
+## 2026-09-10 — Contact Us page (`contact.html` → `send-contact.php`)
+
+- **Files:** `contact.html`, `assets/contact.js`, `send-contact.php`. Linked from the
+  header nav, mobile nav, and footer (Company column) on every page, including
+  `404.html`, and listed in `sitemap.xml`.
+- **Routing:** the department dropdown posts only a **key** (`Sales Inquiries`,
+  `Accounting Inquiries`, `Shipment Inquiries`, `General Inquiries`; exact match,
+  spaces and capitals included). `send-contact.php` looks the key up in
+  **`contact_departments` in the server's `config.php`**, which holds the staff
+  addresses. Those addresses are never in the HTML or the repo;
+  `config.example.php` shows the shape with `example.com` placeholders. A key
+  that isn't in the map is rejected (400).
+- **DEPLOY ORDER:** add `contact_departments` to `public_html/config.php` on the
+  server **before** pushing to `main` (a push deploys immediately). If the map is
+  missing, the form shows the "please call us" error (HTTP 500 JSON) and PHP logs
+  `'contact_departments' is missing from config.php`. The quote form is unaffected
+  either way.
+- **Adding a department:** add the key to the server's `config.php` first, then add
+  a matching `<option value="key">` to `contact.html`. The key also needs a `label`,
+  which is the name used in the emails.
+- **Auto-reply:** a branded confirmation, sent when `send_confirmation` is true.
+  Its Reply-To is `to_email` (`sales@`), **never** a department's staff, so staff
+  addresses aren't exposed to whoever fills in the form. It doesn't echo the
+  message back (auto-replies to arbitrary addresses are a spam vector), and it
+  only greets by name when the name looks like a name.
+- **Diagnostic tell:** same as the quote form. A GET to `/send-contact.php` should
+  return **405 with a JSON body**. A blank 500 means PHP dropped back to 5.6
+  (see the `.htaccess` handler notes above).
+- **Header:** six nav links didn't fit at tablet widths (769–1024px). The flex row
+  squashed the logo to ~50px and the logo, nav, and CTA touched. The fix is tighter
+  nav gaps plus a 16px minimum `.header__bar` gap in `styles.css`. If you add a
+  seventh link, re-check 769–1024px.
+- **Fixed in passing:** `quote.html` (and now `contact.html`) overflowed 320px phones
+  by 18px because the unbreakable `sales@…` link in the dark sidebar card set the
+  card's minimum width. Fixed with `overflow-wrap:anywhere` on `.qcontact a`.
+  All 14 pages were re-verified at 0px overflow from 320px to 1180px.
+
 ### Still outstanding
 - **No redirect map from the old WordPress URLs** — they 404 (now onto the branded
   404 page). Search Console was only set up at go-live so there's no history to mine

@@ -57,5 +57,12 @@ place** — type over the existing text. Don't delete a whole question, and don'
 remove the little +/– toggle; if a question ever stops opening and closing,
 text Doug and he'll fix it in a minute.
 
+## The Contact Us page
+You can change the wording on the Contact page: the headline, the intro, and
+the sidebar boxes. The form itself
+(the boxes, labels, and the department dropdown) is locked. Each department in
+the dropdown sends to specific people, and that list is set up behind the scenes.
+To add a department, rename one, or change who receives it, contact Doug.
+
 ## Questions
 Text or email Doug and he'll walk you through it.
