@@ -197,7 +197,7 @@ try {
 </td></tr>
 <tr><td style="padding:34px 32px 8px;">
 <h1 style="font:700 22px/1.35 Arial,Helvetica,sans-serif;color:#0f1216;margin:0 0 16px;">Thanks, {$nameHtml} &mdash; we&rsquo;ve got your request.</h1>
-<p style="font:15px/1.7 Arial,Helvetica,sans-serif;color:#3a3f44;margin:0 0 16px;">A real person on our team is reviewing it now. We&rsquo;ll get back to you <strong style="color:#0f1216;">within 1&ndash;2 business days</strong> with a quote and a recommendation for the right build.</p>
+<p style="font:15px/1.7 Arial,Helvetica,sans-serif;color:#3a3f44;margin:0 0 16px;">A real person on our team is reviewing it now. We&rsquo;ll get back to you <strong style="color:#0f1216;">the same or next business day</strong> with a quote and a recommendation for the right build.</p>
 <p style="font:15px/1.7 Arial,Helvetica,sans-serif;color:#3a3f44;margin:0 0 26px;">Thought of something to add, or in a hurry? Just reply to this email or give us a call &mdash; we&rsquo;re glad to help.</p>
 </td></tr>
 <tr><td style="padding:0 32px 34px;">
@@ -215,8 +215,8 @@ try {
 </body></html>
 HTML;
         $ack->AltBody = "Thanks, {$name} — we've got your request.\n\n"
-                      . "A real person on our team is reviewing it now. We'll get back to you within "
-                      . "1-2 business days with a quote and a recommendation for the right build.\n\n"
+                      . "A real person on our team is reviewing it now. We'll get back to you the same or "
+                      . "next business day with a quote and a recommendation for the right build.\n\n"
                       . "Thought of something to add, or in a hurry? Reply to this email or call us.\n\n"
                       . "Call: 800.495.8107\nEmail: sales@lakelandgraphics.com\n\n"
                       . "Lakeland Graphics\n9444 Deerwood Lane N, Maple Grove, MN 55369\n"
