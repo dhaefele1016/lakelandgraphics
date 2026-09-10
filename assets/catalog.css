@@ -137,7 +137,7 @@
   .apps-grid .shot{order:-1;}
   .siblings{grid-template-columns:1fr;}
   .ind-grid{grid-template-columns:1fr;}
-  .ind-row:nth-of-type(even) .ind-visual{order:-1;}
+  .ind-row:nth-of-type(even) .ind-visual{order:0;}  /* stacked: every row text → image */
   .tquote{grid-template-columns:1fr;gap:18px;}
   .tquote__meta{position:static;flex-direction:row;align-items:center;flex-wrap:wrap;}
   .tquote__mark{display:none;}
