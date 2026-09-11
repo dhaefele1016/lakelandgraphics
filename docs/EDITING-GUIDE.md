@@ -37,6 +37,13 @@ In the big headlines, you can make any word the brand accent color:
 (This accent trick works in the large headlines. In normal paragraphs, Bold just
 makes text bold as usual.)
 
+## Photo labels
+The small labels sitting on photos (like **PETROLEUM** or **COLOR-MATCHED
+PROOFING**) can be edited: click the label and type. They always show in
+capital letters, whatever you type. Keep them to a few words, since they sit on
+top of the picture. The little colored square next to each label is part of the
+design and stays put.
+
 ## Undoing a change you haven't published
 Changed your mind before publishing? Open the page, click the **⋮ (three dots)**
 next to **Save**, and choose **"Discard unsaved changes."** That throws away your
