@@ -44,6 +44,16 @@ capital letters, whatever you type. Keep them to a few words, since they sit on
 top of the picture. The little colored square next to each label is part of the
 design and stays put.
 
+## "At a glance" boxes and spec sheets
+On the Fuel, Decals, Fleet and Specialty pages you can edit:
+- the **At a glance** box near the top (lead time, short runs, and so on), both
+  the labels and the values
+- everything in **Materials & specifications**: the small card labels, the row
+  labels (Film, Laminate…), and the descriptions
+
+Change the wording in place. Don't delete a whole row. If you need a row added
+or removed, contact Doug.
+
 ## Undoing a change you haven't published
 Changed your mind before publishing? Open the page, click the **⋮ (three dots)**
 next to **Save**, and choose **"Discard unsaved changes."** That throws away your
